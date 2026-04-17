@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>window.__SUPABASE_URL__="https://wmxnwapnfurwoalvkkwh.supabase.co";window.__SUPABASE_ANON_KEY__="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndteG53YXBuZnVyd29hbHZra3doIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MDgwODEsImV4cCI6MjA5MTQ4NDA4MX0.BNgF4LD35_Ooxtkv5Pok8ldrBeHPOCDauv-ZYG1v7_Q";</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitTrack</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Critical above-the-fold styles */
+    body {
+      margin: 0;
+      font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f0f4fc;
+      color: #1e293b;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      align-items: center;
+    }
+    .loading {
+      font-size: 1.2rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading" class="loading">Loading...</div>
+  <div id="app" class="app" hidden>
+    <header class="app-header">
+      <h1>FitTrack</h1>
+      <button id="signOut" class="btn btn-outline">Sign Out</button>
+    </header>
+
+    <main class="app-main">
+      <div class="dashboard-grid">
+        <!-- Workout Form Card -->
+        <div class="card">
+          <h2>Log a Workout</h2>
+          <form id="workoutForm">
+            <div class="form-group">
+              <label for="type">Workout Type</label>
+              <input type="text" id="type" name="type" required aria-required="true"/>
+            </div>
+            <div class="form-group">
+              <label for="duration">Duration (minutes)</label>
+              <input type="number" id="duration" name="duration" min="1" required aria-required="true"/>
+            </div>
+            <div class="form-group">
+              <label for="intensity">Intensity</label>
+              <select id="intensity" name="intensity">
+                <option value="">Select intensity</option>
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Log Workout</button>
+            <div id="formError" class="error" role="alert" hidden></div>
+          </form>
+        </div>
+
+        <!-- Dashboard Stats Card -->
+        <div class="card">
+          <h2>Your Progress</h2>
+          <div class="stat-item">
+            <span class="stat-label">Weekly Workouts</span>
+            <span id="workoutCount" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Total Duration (min)</span>
+            <span id="totalDuration" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Current Streak (days)</span>
+            <span id="streak" class="stat-value pulse">0</span>
+          </div>
+
+          <h3>Recent Workouts</h3>
+          <ul id="workoutList" class="workout-list">
+            <!-- Filled by JS -->
+          </ul>
+          <div id="emptyState" class="empty-state">No workouts logged yet.</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

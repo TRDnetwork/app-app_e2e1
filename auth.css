@@ -1,0 +1,154 @@
+/* Auth UI Styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: #f0f4fc;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.password-toggle:hover {
+  text-decoration: underline;
+}
+
+.social-login {
+  margin: 1.5rem 0;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #e2e8f0;
+}
+
+.divider span {
+  padding: 0 0.5rem;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.social-icon {
+  fill: currentColor;
+}
+
+.magic-link {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.password-strength {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.password-strength.weak {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.password-strength.fair {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.password-strength.good {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.password-strength.strong {
+  background-color: #bbf7d0;
+  color: #057a55;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 0.5rem;
+  }
+  
+  .btn-social {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* a11y: High contrast mode */
+@media (prefers-contrast: high) {
+  .divider {
+    color: #1e293b;
+  }
+  
+  .link {
+    color: #1e293b;
+    border-bottom: 1px solid #1e293b;
+  }
+  
+  .link:hover {
+    text-decoration: none;
+  }
+}
+
+/* a11y: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn-social:hover {
+    transform: none;
+  }
+}
